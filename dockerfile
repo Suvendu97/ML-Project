@@ -1,12 +1,10 @@
-FROM python:3.10-slim
+FROM python:3.10
 
 WORKDIR /app
 
-# 1. install dependencies FIRST (cached layer)
 COPY requirements.txt .
 RUN pip install --no-cache-dir -r requirements.txt
 
-# 2. then copy code
 COPY . .
 
 EXPOSE 8000
